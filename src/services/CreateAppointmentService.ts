@@ -1,12 +1,12 @@
-import { getCustomRepository } from 'typeorm';
 import { startOfHour } from 'date-fns';
+import { getCustomRepository } from 'typeorm';
 
 import Appointment from '../models/Appointment';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 interface Request {
-  date: Date;
   provider: string;
+  date: Date;
 }
 
 class CreateAppointmentService {
@@ -20,12 +20,12 @@ class CreateAppointmentService {
     );
 
     if (appointmentAlreadyBooked) {
-      throw Error('Appointment is already booked');
+      throw Error('This appointment is already booked');
     }
 
     const appointment = appointmentsRepository.create({
-      date: appointmentDate,
       provider,
+      date: appointmentDate,
     });
 
     await appointmentsRepository.save(appointment);
