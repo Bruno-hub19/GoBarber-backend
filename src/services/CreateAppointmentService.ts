@@ -13,17 +13,20 @@ class CreateAppointmentService {
   public async execute({ date, provider }: Request): Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository);
 
-    const appointmentHour = startOfHour(date);
+    const appointmentDate = startOfHour(date);
 
-    const appointmentAlreadyBooked = appointmentsRepository.findByDate(
-      appointmentHour,
+    const appointmentAlreadyBooked = await appointmentsRepository.findByDate(
+      appointmentDate,
     );
 
     if (appointmentAlreadyBooked) {
       throw Error('Appointment is already booked');
     }
 
-    const appointment = appointmentsRepository.create({ date, provider });
+    const appointment = appointmentsRepository.create({
+      date: appointmentDate,
+      provider,
+    });
 
     await appointmentsRepository.save(appointment);
 
