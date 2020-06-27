@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import uploadConfigs from '../configs/upload';
+import AppError from '../errors/AppError';
 import User from '../models/User';
 
 interface Request {
@@ -19,7 +20,10 @@ class UpdateUserAvatarService {
     });
 
     if (!user) {
-      throw new Error('Need to authenticate before changing your avatar');
+      throw new AppError(
+        'Need to authenticate before changing your avatar',
+        401,
+      );
     }
 
     if (user.avatar) {
