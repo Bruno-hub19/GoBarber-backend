@@ -38,7 +38,8 @@
       {
         "argsIgnorePattern": "_"
       }
-    ]
+    ],
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {
