@@ -23,13 +23,6 @@
     "prettier"
   ],
   "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never"
-      }
-    ],
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
     "camelcase": "off",
@@ -37,6 +30,13 @@
       "error",
       {
         "argsIgnorePattern": "_"
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
       }
     ],
     "no-console": "off"

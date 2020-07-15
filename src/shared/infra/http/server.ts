@@ -7,7 +7,7 @@ import cors from 'cors';
 import '@shared/infra/typeorm';
 import uploadConfigs from '@configs/upload';
 import AppError from '@shared/errors/AppError';
-import routes from './routes/index';
+import routes from '@shared/infra/http/routes';
 
 const app = express();
 
@@ -35,5 +35,3 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 app.listen(3333, () => {
   console.log('Server running => http://localhost:3333');
 });
-
-export default app;
