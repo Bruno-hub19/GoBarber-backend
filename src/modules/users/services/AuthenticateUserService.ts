@@ -1,3 +1,4 @@
+import { injectable, inject } from 'tsyringe';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
@@ -17,12 +18,11 @@ interface IResponse {
   token: string;
 }
 
+@injectable()
 class AuthenticateUserService {
-  private usersRepository: IUsersRepository;
-
-  constructor(usersRepository: IUsersRepository) {
-    this.usersRepository = usersRepository;
-  }
+  constructor(
+    @inject('UsersRepository') private usersRepository: IUsersRepository,
+  ) { } //eslint-disable-line
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);

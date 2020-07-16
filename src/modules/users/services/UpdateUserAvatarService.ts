@@ -1,3 +1,4 @@
+import { injectable, inject } from 'tsyringe';
 import fs from 'fs';
 import path from 'path';
 
@@ -12,12 +13,11 @@ interface Request {
   avatarFileName: string;
 }
 
+@injectable()
 class UpdateUserAvatarService {
-  private usersRepository: IUsersRepository;
-
-  constructor(usersRepository: IUsersRepository) {
-    this.usersRepository = usersRepository;
-  }
+  constructor(
+    @inject('UsersRepository') private usersRepository: IUsersRepository,
+  ) { } //eslint-disable-line
 
   public async execute({ user_id, avatarFileName }: Request): Promise<User> {
     const user = await this.usersRepository.findById(user_id);
