@@ -3,10 +3,10 @@ import { hash } from 'bcryptjs';
 
 import AppError from '@shared/errors/AppError';
 
-import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import User from '@modules/users/infra/typeorm/entities/User';
+import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 
-interface Request {
+interface IRequest {
   name: string;
   email: string;
   password: string;
@@ -18,7 +18,7 @@ class CreateUserService {
     @inject('UsersRepository') private usersRepository: IUsersRepository,
   ) { } //eslint-disable-line
 
-  public async execute({ name, email, password }: Request): Promise<User> {
+  public async execute({ name, email, password }: IRequest): Promise<User> {
     const findEmail = await this.usersRepository.findByEmail(email);
 
     if (findEmail) {
