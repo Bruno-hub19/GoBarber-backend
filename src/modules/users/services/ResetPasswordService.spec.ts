@@ -74,9 +74,6 @@ describe('ResetPassword', () => {
 
     const { token } = await fakeUserTokensRepository.generate(user.id);
 
-    // Isso faz com que quando a função Date.now() for chamada, ao invés de executar
-    // a função nativa do javascript, ele irá executar a minha função dentro do
-    // "mockImplementation"
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
       const customDate = new Date();
 
