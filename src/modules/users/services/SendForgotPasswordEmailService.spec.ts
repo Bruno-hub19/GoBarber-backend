@@ -6,8 +6,8 @@ import FakeUserTokensRepository from '@modules/users/repositories/fakes/FakeUser
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeMailProvider from '@shared/containers/providers/MailProvider/fakes/FakeMailProvider';
 
-import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
 import CreateUserService from './CreateUserService';
+import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeUserTokensRepository: FakeUserTokensRepository;

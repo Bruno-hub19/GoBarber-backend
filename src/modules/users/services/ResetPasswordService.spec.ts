@@ -3,11 +3,13 @@ import AppError from '@shared/errors/AppError';
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 import FakeUserTokensRepository from '@modules/users/repositories/fakes/FakeUserTokensRepository';
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
+
 import ResetPasswordService from './ResetPasswordService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeUserTokensRepository: FakeUserTokensRepository;
 let fakeHashProvider: FakeHashProvider;
+
 let resetPasswordService: ResetPasswordService;
 
 describe('ResetPassword', () => {
