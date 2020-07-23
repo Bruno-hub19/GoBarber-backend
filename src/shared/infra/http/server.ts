@@ -35,5 +35,5 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 });
 
 app.listen(3333, () => {
-  console.log('Server running => http://localhost:3333');
+  console.log('[SERVER] - Running: http://localhost:3333');
 });
