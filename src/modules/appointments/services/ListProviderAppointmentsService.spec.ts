@@ -1,9 +1,11 @@
-import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
+import FakeAppointmentsRepository from '@modules/appointments/repositories/fakes/FakeAppointmentsRepository';
+import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
 
 import CreateAppointmentService from './CreateAppointmentService';
 import ListProviderAppointmentsService from './ListProviderAppointmentsService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
+let fakeNotificationsRepository: FakeNotificationsRepository;
 
 let createAppointmentService: CreateAppointmentService;
 let listProviderAppointmentsService: ListProviderAppointmentsService;
@@ -11,9 +13,11 @@ let listProviderAppointmentsService: ListProviderAppointmentsService;
 describe('ListProviderAppointments', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
+    fakeNotificationsRepository = new FakeNotificationsRepository();
 
     createAppointmentService = new CreateAppointmentService(
       fakeAppointmentsRepository,
+      fakeNotificationsRepository,
     );
 
     listProviderAppointmentsService = new ListProviderAppointmentsService(
