@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "removeComments": true,
+    "allowJs": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",

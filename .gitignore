@@ -6,4 +6,5 @@ tmp/*
 coverage/
 
 # FILES
-.ENV
+.env
+ormconfig.json
