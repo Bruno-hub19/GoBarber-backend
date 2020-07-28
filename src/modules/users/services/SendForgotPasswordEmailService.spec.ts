@@ -5,6 +5,7 @@ import FakeUserTokensRepository from '@modules/users/repositories/fakes/FakeUser
 
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
 import FakeMailProvider from '@shared/containers/providers/MailProvider/fakes/FakeMailProvider';
+import FakeCacheProvider from '@shared/containers/providers/CacheProvider/fakes/FakeCacheProvider';
 
 import CreateUserService from './CreateUserService';
 import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
@@ -14,6 +15,7 @@ let fakeUserTokensRepository: FakeUserTokensRepository;
 
 let fakeHashProvider: FakeHashProvider;
 let fakeMailProvider: FakeMailProvider;
+let fakeCacheProvider: FakeCacheProvider;
 
 let createUserService: CreateUserService;
 let sendForgotPasswordEmailService: SendForgotPasswordEmailService;
@@ -25,10 +27,12 @@ describe('SendForgotPasswordEmail', () => {
 
     fakeHashProvider = new FakeHashProvider();
     fakeMailProvider = new FakeMailProvider();
+    fakeCacheProvider = new FakeCacheProvider();
 
     createUserService = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
+      fakeCacheProvider,
     );
 
     sendForgotPasswordEmailService = new SendForgotPasswordEmailService(
