@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
-    "removeComments": true,
-    "allowJs": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
+    "allowJs": true,
     "paths": {
       "@configs/*": [
         "configs/*"
@@ -23,7 +22,6 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   }
 }
