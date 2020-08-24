@@ -7,4 +7,4 @@ coverage/
 
 # FILES
 .env
-ormconfig.json
+ormconfig.js
