@@ -1,6 +1,5 @@
 # FOLDERS
 node_modules/
-dist/
 tmp/*
 !tmp/.gitkeep
 coverage/
