@@ -7,4 +7,4 @@ dist/
 
 # FILES
 .env
-ormconfig.js
+ormconfig.json
